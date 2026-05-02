@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accessibility — SAFE</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.legal-page { padding: 100px 40px; max-width: 800px; margin: 0 auto; }
+.legal-page h1 { font-size: 36px; font-weight: 300; margin-bottom: 40px; margin-top: 60px; }
+.legal-page h2 { font-size: 18px; font-weight: 400; margin-top: 32px; margin-bottom: 16px; }
+.legal-page p { margin-bottom: 16px; colour: var(--mid); line-height: 1.8; }
+.legal-page ul { margin-left: 24px; margin-bottom: 16px; }
+.legal-page li { margin-bottom: 8px; colour: var(--mid); line-height: 1.8; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="home-logo" aria-label="Home">
+    <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 2 11 L 10 3 L 18 11"/>
+      <path d="M 2 11 L 2 18 L 18 18 L 18 11"/>
+    </svg>
+  </a>
+
+  <button class="nav-toggle" aria-label="Open menu" aria-haspopup="dialog" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" width="20" height="20"><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2.5"/><path d="M 18 8 L 20 6 L 22 8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+</nav>
+
+<div class="legal-page">
+<h1>Accessibility Statement</h1>
+
+<h2>Our Commitment</h2>
+<p>SAFE is committed to ensuring that its website is accessible to all users, including those with disabilities. We strive to provide an inclusive online experience for everyone.</p>
+
+<h2>Accessibility Features</h2>
+<p>This website includes the following accessibility features:</p>
+<ul>
+<li>Semantic HTML markup for proper document structure</li>
+<li>Sufficient colour contrast ratios for readability</li>
+<li>Keyboard navigation support throughout the site</li>
+<li>ARIA labels and descriptions for interactive elements</li>
+<li>Responsive design that works on mobile devices</li>
+<li>Text alternatives for images and visual content</li>
+<li>Readable fonts and adjustable text sizing</li>
+<li>Clear navigation and link descriptions</li>
+</ul>
+
+<h2>Browser & Assistive Technology Support</h2>
+<p>This website is designed to work with modern web browsers and assistive technologies including screen readers, keyboard-only navigation, and speech recognition software.</p>
+
+<h2>Known Limitations</h2>
+<p>We are continuously working to improve accessibility. If you encounter any accessibility barriers or have suggestions for improvement, please contact us.</p>
+
+<h2>Video & Audio Content</h2>
+<p>The music player on this site includes standard HTML5 audio controls. For optimal experience with audio content, use a modern browser with native HTML5 audio support.</p>
+
+<h2>Feedback & Reports</h2>
+<p>If you encounter any accessibility issues while using this website, please let us know so we can work to address them. You can report accessibility concerns to: <a href="mailto:enquiries@safespot.life" style="colour: var(--black); border-bottom: 1px solid var(--black); text-decoration: none;">enquiries@safespot.life</a></p>
+
+<h2>Standards Compliance</h2>
+<p>This website strives to comply with the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards and the Americans with Disabilities Act (ADA) where applicable.</p>
+
+<h2>Contacting Accessibility Support</h2>
+<p>For accessibility-related inquiries or assistance, please contact us at enquiries@safespot.life with "Accessibility" in the subject line.</p>
+</div>
+
+<footer>
+  <span class="footer-left">S·A·F·E — Steps Approaching Future Earth</span>
+  <span class="footer-right" style="display: flex; gap: 24px; font-size: 11px;">
+    <a href="help.html" style="colour: inherit; text-decoration: none;">Help</a>
+    <a href="privacy.html" style="colour: inherit; text-decoration: none;">Privacy</a>
+    <a href="terms.html" style="colour: inherit; text-decoration: none;">Terms</a>
+    <a href="privacy-choices.html" style="colour: inherit; text-decoration: none;">Choices</a>
+    <a href="accessibility.html" style="colour: inherit; text-decoration: none;">Access</a>
+    <a href="https://hughcorduroy.bandcamp.com/" target="_blank" rel="noopener" style="colour: inherit; text-decoration: none;">Music</a>
+  </span>
+</footer>
+
+<script src="bento.js" defer></script>
+</body>
+</html>

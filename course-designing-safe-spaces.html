@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Structural Integrity Blueprint — SAFE Course</title>
+<meta name="description" content="Why Some Lives Hold Up Under Pressure and Some Don't. An 8-week course for youth 16-25 exploring how to build the structures that hold a life together.">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin: 48px 0; }
+  .course-card { padding: 32px; border: 1px solid var(--light); border-radius: 4px; }
+  .course-card-number { font-size: 48px; font-weight: 300; colour: var(--mid); margin-bottom: 16px; }
+  .course-card-title { font-size: 18px; font-weight: 500; margin-bottom: 12px; colour: var(--black); }
+  .course-card-desc { font-size: 14px; line-height: 1.7; colour: var(--mid); }
+
+  .learning-outcomes { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin: 48px 0; }
+  .outcomes-column h3 { font-size: 16px; font-weight: 500; margin-bottom: 16px; }
+  .outcomes-list { list-style: none; padding: 0; }
+  .outcomes-list li { padding: 12px 0; padding-left: 24px; position: relative; font-size: 14px; line-height: 1.6; colour: var(--mid); }
+  .outcomes-list li:before { content: '→'; position: absolute; left: 0; colour: var(--black); }
+
+  .curriculum-week { padding: 24px; border-left: 3px solid var(--light); margin-bottom: 24px; }
+  .curriculum-week-title { font-weight: 500; margin-bottom: 8px; colour: var(--black); }
+  .curriculum-week-desc { font-size: 13px; line-height: 1.6; colour: var(--mid); }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+  .form-row.full { grid-template-columns: 1fr; }
+  .form-group { display: flex; flex-direction: column; }
+  .form-group label { font-size: 12px; font-weight: 500; margin-bottom: 8px; colour: var(--black); text-transform: uppercase; letter-spacing: 0.05em; }
+  .form-group input, .form-group select, .form-group textarea { padding: 12px; border: 1px solid var(--light); border-radius: 2px; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; colour: var(--black); background: white; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-colour: var(--black); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .form-submit { background: var(--black); colour: white; border: none; padding: 14px 40px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; cursor: pointer; border-radius: 2px; transition: opacity 0.2s; }
+  .form-submit:hover { opacity: 0.8; }
+
+  .back-link { display: inline-block; margin-bottom: 40px; font-size: 12px; colour: var(--black); border-bottom: 1px solid var(--black); text-decoration: none; }
+  .back-link:hover { opacity: 0.6; }
+
+  @media (max-width: 768px) {
+    .learning-outcomes { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="home-logo" aria-label="Home">
+    <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 2 11 L 10 3 L 18 11"/>
+      <path d="M 2 11 L 2 18 L 18 18 L 18 11"/>
+    </svg>
+  </a>
+
+  <button class="nav-toggle" aria-label="Open menu" aria-haspopup="dialog" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" width="20" height="20"><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2.5"/><path d="M 18 8 L 20 6 L 22 8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+    <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+      <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+  </button>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <a href="course.html" class="back-link">← Back to courses</a>
+    <p class="page-hero-eyebrow">Structural Integrity Blueprint — 001 · For Youth 16-25</p>
+    <h1 class="page-hero-title">
+      Why Some Lives<br>
+      <em>Hold Up Under Pressure.</em>
+    </h1>
+    <p class="page-hero-desc">
+      An 8-week online course exploring how to build and maintain the internal and external structures that hold a life together. Learn why some people thrive under stress while others collapse — and how to build your own blueprint for resilience.
+    </p>
+  </div>
+</section>
+
+<!-- THE COURSE -->
+<section>
+  <div class="s-inner">
+    <div class="rooms-header">
+      <p class="s-label">The Course</p>
+      <p class="s-num">A</p>
+    </div>
+
+    <p style="font-size: 15px; line-height: 1.8; colour: var(--mid); margin-bottom: 32px;">
+      This course is built on the principle that resilience isn't talent — it's structure. Over eight weeks, you'll learn what your foundation actually needs, how to identify what's load-bearing in your life, and how to prevent the patterns that cause collapse.
+    </p>
+
+    <div class="course-grid">
+      <div class="course-card">
+        <div class="course-card-number">01</div>
+        <div class="course-card-title">Duration</div>
+        <div class="course-card-desc">8 weeks. 2 hours per week. Asynchronous modules with workbook exercises and weekly reflection prompts.</div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-number">02</div>
+        <div class="course-card-title">Who It's For</div>
+        <div class="course-card-desc">Youth 16-25 in school or work, feeling pressure, wondering why things feel unstable, ready to build something solid.</div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-number">03</div>
+        <div class="course-card-title">Format</div>
+        <div class="course-card-desc">7 modules combining neuroscience, practical frameworks, and workbook exercises designed for honest reflection.</div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-number">04</div>
+        <div class="course-card-title">Outcomes</div>
+        <div class="course-card-desc">Your personal resilience blueprint. Deep understanding of your own nervous system. Practical tools for handling pressure without collapsing.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEARNING OUTCOMES -->
+<section>
+  <div class="s-inner">
+    <div class="rooms-header">
+      <p class="s-label">What You'll Learn</p>
+      <p class="s-num">B</p>
+    </div>
+
+    <div class="learning-outcomes">
+      <div>
+        <h3>Understanding Structure</h3>
+        <ul class="outcomes-list">
+          <li>Your nervous system as your foundation</li>
+          <li>The difference between foundation and roof (and why it matters)</li>
+          <li>What a truly secure foundation needs: consistency, safety, rhythm</li>
+          <li>Why money, credentials, and looks aren't structures</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Building Your Blueprint</h3>
+        <ul class="outcomes-list">
+          <li>Load-bearing vs. decorative activities in your life</li>
+          <li>How to identify what's actually holding you up</li>
+          <li>Why some people juggle 5 things and thrive; others juggle 2 and collapse</li>
+          <li>Patterns of structural failure and how to catch them early</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Capacity & Resilience</h3>
+        <ul class="outcomes-list">
+          <li>Learning hard things without destroying yourself</li>
+          <li>Knowing your actual capacity (and that it changes)</li>
+          <li>Why isolation accelerates collapse</li>
+          <li>Building accountability structures that don't depend on willpower</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Prevention Over Crisis</h3>
+        <ul class="outcomes-list">
+          <li>The early warning signs your structure is failing</li>
+          <li>How to prevent regret by building intentionally</li>
+          <li>Creating your own support systems before you need them</li>
+          <li>Sustaining your blueprint when pressure increases</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section>
+  <div class="s-inner">
+    <div class="rooms-header">
+      <p class="s-label">Course Modules</p>
+      <p class="s-num">C</p>
+    </div>
+
+    <div class="curriculum-week">
+      <div class="curriculum-week-title">Module 1: What You Actually Need Before Everything Else</div>
+      <div class="curriculum-week-desc">Your nervous system is your foundation. Learn the three things a foundation actually needs, and why everything else is built on top of this.</div>
+    </div>
+
+    <div class="curriculum-week">
+      <div class="curriculum-week-title">Module 2: Load-Bearing vs Decorative — Time Management That Actually Works</div>
+      <div class="curriculum-week-desc">Not all activities have equal weight. Identify what's actually holding your life up, and cut what's just taking time.</div>
+    </div>
+
+    <div class="curriculum-week">
+      <div class="curriculum-week-title">Module 3: Structural Failure Patterns — Why You Actually Quit</div>
+      <div class="curriculum-week-desc">The 4 common failure patterns. Recognize them before they collapse, and understand why failure isn't laziness.</div>
+    </div>
+
+    <div class="curriculum-week">
+      <div class="curriculum-week-title">Module 4: The Real Skill — Learning Hard Things Without Collapsing</div>
+      <div class="curriculum-week-desc">How to push yourself without destroying your foundation. The neuroscience of capacity and the truth about burnout.</div>
+    </div>
+
+    <div class="curriculum-week">
+      <div class="curriculum-week-title">Module 5: Knowing Your Capacity (It Changes)</div>
+      <div class="curriculum-week-desc">Capacity is not fixed. Learn how to measure it, how it shifts, and how to adjust your structure accordingly.</div>
+    </div>
+
+    <div class="curriculum-week">
+      <div class="curriculum-week-title">Module 6: Why Isolation Causes Collapse</div>
+      <div class="curriculum-week-desc">You cannot hold yourself up alone. How to build relationships and accountability that are actual structures, not burdens.</div>
+    </div>
+
+    <div class="curriculum-week">
+      <div class="curriculum-week-title">Module 7: Preventing Regret — Building Your Blueprint</div>
+      <div class="curriculum-week-desc">Create your personal resilience blueprint. Identify what you're building toward, and design a structure that will hold.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ENROLLMENT -->
+<section>
+  <div class="s-inner">
+    <div class="rooms-header">
+      <p class="s-label">Interest in this course?</p>
+      <p class="s-num">D</p>
+    </div>
+
+    <p style="font-size: 15px; line-height: 1.8; colour: var(--mid); margin-bottom: 32px;">
+      Every situation is different. We negotiate pricing based on your circumstances — whether you're a young person accessing this independently, part of an organization, or in a different context entirely. Fill out the form below and we'll get in touch within 48 hours to discuss how we can work together.
+    </p>
+
+    <div style="background: var(--off); padding: 40px; border-radius: 4px; margin: 48px 0;">
+      <p style="font-family:'IBM Plex Mono',monospace; font-size:11px; colour:var(--mid); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:24px;">Interest Form</p>
+      <form method="POST" action="mailto:enquiries@safespot.life" enctype="text/plain">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" name="name" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Organisation (if applicable)</label>
+            <input type="text" name="organisation">
+          </div>
+          <div class="form-group">
+            <label>Role / Context</label>
+            <input type="text" name="role">
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label>Tell us about your situation</label>
+            <textarea name="message" placeholder="Are you accessing this as an individual? Leading a team? Part of an organisation? What's your context?"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="form-submit">Get in Touch</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-left">S·A·F·E — Steps Approaching Future Earth</span>
+  <span class="footer-right" style="display: flex; gap: 24px; font-size: 11px;">
+    <a href="help.html" style="colour: inherit; text-decoration: none;">Help</a>
+    <a href="privacy.html" style="colour: inherit; text-decoration: none;">Privacy</a>
+    <a href="terms.html" style="colour: inherit; text-decoration: none;">Terms</a>
+  </span>
+</footer>
+
+<script src="theme.js"></script>
+<script src="bento.js" defer></script>
+</body>
+</html>

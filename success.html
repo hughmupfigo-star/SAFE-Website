@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Confirmed — SAFE</title>
+<meta name="description" content="Your order has been confirmed">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .success-container {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .success-icon {
+    font-size: 48px;
+    margin-bottom: 24px;
+  }
+
+  .success-container h1 {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  .success-container p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--mid);
+    margin: 12px 0;
+  }
+
+  .success-links {
+    margin-top: 40px;
+  }
+
+  .success-links a {
+    display: inline-block;
+    margin: 8px 12px;
+    padding: 12px 24px;
+    background: var(--text);
+    color: var(--bg);
+    text-decoration: none;
+    border-radius: 0;
+    font-size: 14px;
+  }
+
+  .success-links a:hover {
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--text);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="home-logo" aria-label="Home">
+    <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 2 11 L 10 3 L 18 11"/>
+      <path d="M 2 11 L 2 18 L 18 18 L 18 11"/>
+    </svg>
+  </a>
+
+  <button class="nav-toggle" aria-label="Open menu" aria-haspopup="dialog" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" width="20" height="20"><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2.5"/><path d="M 18 8 L 20 6 L 22 8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+    <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+      <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+  </button>
+</nav>
+
+<section class="success-container">
+  <div class="success-icon">✓</div>
+  <h1>Order Confirmed</h1>
+  <p>Thank you for your purchase. Your order has been received and a confirmation email has been sent to you.</p>
+  <p>You'll receive tracking information once your items ship. All proceeds directly fund the SAFE hub.</p>
+
+  <div class="success-links">
+    <a href="shop.html">Continue Shopping</a>
+    <a href="index.html">Back Home</a>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-left">S·A·F·E — Steps Approaching Future Earth</span>
+  <span class="footer-right" style="display: flex; gap: 24px; font-size: 11px;">
+    <a href="help.html" style="colour: inherit; text-decoration: none;">Help</a>
+    <a href="privacy.html" style="colour: inherit; text-decoration: none;">Privacy</a>
+    <a href="terms.html" style="colour: inherit; text-decoration: none;">Terms</a>
+    <a href="privacy-choices.html" style="colour: inherit; text-decoration: none;">Choices</a>
+    <a href="accessibility.html" style="colour: inherit; text-decoration: none;">Access</a>
+    <a href="https://hughcorduroy.bandcamp.com/" target="_blank" rel="noopener" style="colour: inherit; text-decoration: none;">Music</a>
+  </span>
+</footer>
+
+<script src="theme.js"></script>
+</body>
+</html>

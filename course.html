@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prevention Over Crisis — SAFE Course</title>
+<meta name="description" content="Building Youth Resilience: A 6-8 week online course for youth workers, teachers, and community leaders. Learn prevention-first frameworks to transform at-risk lives.">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin: 48px 0; }
+  .course-card { padding: 32px; border: 1px solid var(--light); border-radius: 4px; display: flex; flex-direction: column; }
+  .course-card-number { font-size: 48px; font-weight: 300; colour: var(--mid); margin-bottom: 16px; }
+  .course-card-title { font-size: 18px; font-weight: 500; margin-bottom: 12px; colour: var(--black); }
+  .course-card-desc { font-size: 14px; line-height: 1.7; colour: var(--mid); margin-bottom: 20px; flex-grow: 1; }
+  .course-card-link { font-size: 12px; colour: var(--black); border-bottom: 1px solid var(--black); text-decoration: none; padding-bottom: 1px; display: inline-block; transition: opacity 0.2s; }
+  .course-card-link:hover { opacity: 0.6; }
+
+  .learning-outcomes { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin: 48px 0; }
+  .outcomes-column h3 { font-size: 16px; font-weight: 500; margin-bottom: 16px; }
+  .outcomes-list { list-style: none; padding: 0; }
+  .outcomes-list li { padding: 12px 0; padding-left: 24px; position: relative; font-size: 14px; line-height: 1.6; colour: var(--mid); }
+  .outcomes-list li:before { content: '→'; position: absolute; left: 0; colour: var(--black); }
+
+  .curriculum-week { padding: 24px; border-left: 3px solid var(--light); margin-bottom: 24px; }
+  .curriculum-week-title { font-weight: 500; margin-bottom: 8px; colour: var(--black); }
+  .curriculum-week-desc { font-size: 13px; line-height: 1.6; colour: var(--mid); }
+
+  .instructor-bio { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; margin: 48px 0; }
+  .instructor-content h3 { font-size: 20px; font-weight: 400; margin-bottom: 16px; }
+  .instructor-content p { font-size: 14px; line-height: 1.8; colour: var(--mid); margin-bottom: 16px; }
+
+  .pricing-box { background: var(--off); padding: 40px; border-radius: 4px; margin: 48px 0; }
+  .pricing-note { font-family: 'IBM Plex Mono', monospace; font-size: 11px; colour: var(--mid); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 24px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+  .form-row.full { grid-template-columns: 1fr; }
+  .form-group { display: flex; flex-direction: column; }
+  .form-group label { font-size: 12px; font-weight: 500; margin-bottom: 8px; colour: var(--black); text-transform: uppercase; letter-spacing: 0.05em; }
+  .form-group input, .form-group select, .form-group textarea { padding: 12px; border: 1px solid var(--light); border-radius: 2px; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; colour: var(--black); background: white; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-colour: var(--black); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .form-submit { background: var(--black); colour: white; border: none; padding: 14px 40px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; cursor: pointer; border-radius: 2px; transition: opacity 0.2s; }
+  .form-submit:hover { opacity: 0.8; }
+
+  .faq-section { margin: 48px 0; }
+  .faq-item { padding: 24px; border-bottom: 1px solid var(--light); }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-question { font-weight: 500; margin-bottom: 12px; cursor: pointer; colour: var(--black); }
+  .faq-answer { font-size: 13px; line-height: 1.7; colour: var(--mid); display: none; }
+  .faq-item.active .faq-answer { display: block; }
+
+  .cta-band { background: var(--black); colour: white; padding: 80px 40px; text-align: centre; margin: 80px 0 0 0; }
+  .cta-band h2 { font-size: 48px; font-weight: 300; margin-bottom: 20px; line-height: 1.2; }
+  .cta-band em { font-style: italic; font-weight: 300; }
+  .cta-band p { font-size: 15px; colour: rgba(255, 255, 255, 0.7); margin-bottom: 32px; }
+  .cta-btn { display: inline-block; background: white; colour: var(--black); padding: 14px 40px; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; border-radius: 2px; transition: opacity 0.2s; }
+  .cta-btn:hover { opacity: 0.8; }
+
+  .course-section-header { font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; colour: var(--black); margin-bottom: 24px; margin-top: 48px; padding-bottom: 12px; border-bottom: 2px solid var(--black); }
+  .course-section-header:first-of-type { margin-top: 0; }
+  .course-card-badge { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; colour: var(--black); background: transparent; border: 1px solid var(--black); padding: 4px 8px; margin-bottom: 12px; }
+
+  @media (max-width: 768px) {
+    .learning-outcomes { grid-template-columns: 1fr; }
+    .instructor-bio { grid-template-columns: 1fr; }
+    .cta-band h2 { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="home-logo" aria-label="Home">
+    <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 2 11 L 10 3 L 18 11"/>
+      <path d="M 2 11 L 2 18 L 18 18 L 18 11"/>
+    </svg>
+  </a>
+
+  <button class="nav-toggle" aria-label="Open menu" aria-haspopup="dialog" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" width="20" height="20"><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2.5"/><path d="M 18 8 L 20 6 L 22 8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+    <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+      <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+  </button>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-hero-eyebrow">Prevention Over Crisis — 006 · A practical course for youth-facing professionals</p>
+    <h1 class="page-hero-title">
+      Building Youth<br>
+      <em>Resilience.</em>
+    </h1>
+    <p class="page-hero-desc">
+      A 6–8 week online course for youth workers, teachers, community leaders, and parents. Learn evidence-based frameworks to recognise at-risk young people before crisis strikes, build sustainable resilience structures, and create spaces where prevention is the default.
+    </p>
+  </div>
+</section>
+
+<!-- THE COURSE -->
+<section>
+  <div class="s-inner">
+    <div class="rooms-header">
+      <p class="s-label">The Course</p>
+      <p class="s-num">A</p>
+    </div>
+
+    <p style="font-size: 15px; line-height: 1.8; colour: var(--mid); margin-bottom: 32px;">
+      This course is built on the same principles that drive SAFE: the belief that structure, transparency, and intentional design can transform how we support young people. Over eight weeks, you'll move from framework understanding to real-world application — designing prevention systems that work in your school, youth centre, or team.
+    </p>
+
+    <div class="course-grid">
+      <div class="course-card">
+        <div class="course-card-number">01</div>
+        <div class="course-card-title">Format</div>
+        <div class="course-card-desc">Asynchronous online modules (watch in your own time), plus four live group workshops for strategy building and peer learning.</div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-number">02</div>
+        <div class="course-card-title">Duration</div>
+        <div class="course-card-desc">6–8 weeks. Roughly 3–4 hours per week. Designed for working professionals, not a bootcamp.</div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-number">03</div>
+        <div class="course-card-title">Delivery</div>
+        <div class="course-card-desc">Online platform with downloadable resources, templates, and a private community for course participants.</div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-number">04</div>
+        <div class="course-card-title">Outcomes</div>
+        <div class="course-card-desc">Completion certificate. A practical prevention plan you can implement in your own context. Ongoing access to course materials.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEARNING OUTCOMES -->
+<section>
+  <div class="s-inner">
+    <div class="rooms-header">
+      <p class="s-label">What You'll Learn</p>
+      <p class="s-num">B</p>
+    </div>
+
+    <div class="learning-outcomes">
+      <div>
+        <h3>Recognition &amp; Assessment</h3>
+        <ul class="outcomes-list">
+          <li>Early warning signs: emotional, behavioural, and structural indicators of risk</li>
+          <li>Trauma-informed assessment: moving beyond diagnosis to understanding context</li>
+          <li>The "invisible structure" principle: why environment matters as much as individual support</li>
+          <li>Building your team's confidence to spot what matters</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Systems &amp; Design</h3>
+        <ul class="outcomes-list">
+          <li>Prevention frameworks: from theory to practice in real spaces</li>
+          <li>Designing rooms, routines, and relationships that prevent crisis</li>
+          <li>The role of transparency: why young people respond to honest, structured environments</li>
+          <li>Scaling prevention: adapting principles to schools, youth centres, and community spaces</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Implementation</h3>
+        <ul class="outcomes-list">
+          <li>Audit your current space: what's working, what's missing</li>
+          <li>Build a prevention roadmap: actionable steps you can take immediately</li>
+          <li>Create accountability structures: how to measure if prevention is actually happening</li>
+          <li>Lead your team through change: managing resistance and sustaining momentum</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Resilience &amp; Sustainability</h3>
+        <ul class="outcomes-list">
+          <li>The neuroscience of resilience: what the brain actually needs</li>
+          <li>Building capacity in young people (not dependence on professionals)</li>
+          <li>Self-regulation as a skill, not a diagnosis</li>
+          <li>Sustaining prevention work: avoiding burnout and maintaining fidelity</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section>
+  <div class="s-inner">
+    <div class="rooms-header">
+      <p class="s-label">Curriculum</p>
+      <p class="s-num">C</p>
+    </div>
+
+    <div class="curriculum-week">
+      <div class="curriculum-week-title">Module 1: The Problem &amp; The Promise</div>
+      <div class="curriculum-week-desc">Why crisis intervention models are failing. The prevention-first philosophy. What the data actually shows about early intervention. Why young people are not the problem — the systems around them are.</div>
+    </div>
+
+    <div class="curriculum-week">
+      <div class="curriculum-week-title">Module 2: Recognition — The Invisible Signs</div>
+      <div class="curriculum-week-desc">How to spot risk before it becomes crisis. Emotional indicators, behavioural patterns, environmental red flags. How to build a culture of noticing in your team. Case studies from real youth work settings.</div>
+    </div>
+
+    <div class="curriculum-week">
+      <div class="curriculum-week-title">Module 3: Understanding Context &amp; Trauma</div>
+      <div class="curriculum-week-desc">Trauma-informed practice: beyond diagnosis. The role of poverty, injustice, and systemic harm. Why "resilience" frameworks often miss the structural problem. Rethinking what we ask of young people.</div>
+    </div>
+
+    <div class="curriculum-week">
+      <div class="curriculum-week-title">Module 4: Designing Prevention Systems</div>
+      <div class="curriculum-week-desc">The SAFE Hub framework: intentional design across body, mind, voice, identity. How structure prevents crisis. The invisible load-bearing walls of prevention. Scaling design: from a single room to a whole building to a whole system.</div>
+    </div>
+
+    <div class="curriculum-week">
+      <div class="curriculum-week-title">Module 5: Live Workshop — Audit Your Space</div>
+      <div class="curriculum-week-desc">Walk through your current environment (school, centre, team). What's working? What's missing? Where do young people fall through the cracks? Peer feedback. Honest conversation about real constraints.</div>
+    </div>
+
+    <div class="curriculum-week">
+      <div class="curriculum-week-title">Module 6: Building Your Prevention Roadmap</div>
+      <div class="curriculum-week-desc">From diagnosis to action. Small moves that compound. Regulatory compliance and human development — why they're not opposites. Managing stakeholders. Budget and resource strategies for prevention in resource-poor settings.</div>
+    </div>
+
+    <div class="curriculum-week">
+      <div class="curriculum-week-title">Module 7: Measurement &amp; Accountability</div>
+      <div class="curriculum-week-desc">How do you know if prevention is actually working? Outcome measurement beyond metrics. Tracking what matters: reoffending, mental health, school attendance, sense of belonging. Building feedback loops with your team and the young people you serve.</div>
+    </div>
+
+    <div class="curriculum-week">
+      <div class="curriculum-week-title">Module 8: Live Workshop — Implementation &amp; Scaling</div>
+      <div class="curriculum-week-desc">Present your prevention roadmap. Feedback from facilitators and peers. Anticipate blockers. Sustaining momentum. Committing to action. Long-term support and community for ongoing learning.</div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCTOR -->
+<section>
+  <div class="s-inner">
+    <div class="rooms-header">
+      <p class="s-label">Instructor</p>
+      <p class="s-num">D</p>
+    </div>
+
+    <div class="instructor-bio">
+      <div>
+        <h3>Hugh Mupfigo</h3>
+        <p>
+          Hugh designed SAFE because he's been where many young people are. He's experienced crisis, sought healing, and learned that structure — invisible architecture in spaces, systems, and relationships — is what holds life together. He worked as an engineer, a chef, and a mental health support worker. But more importantly, he survived what he's teaching about.
+        </p>
+        <p>
+          This is not theory. It's not academia divorced from life. Every framework here comes from someone who actually lived through the struggle, took the steps to heal, and spent years in rigorous environments learning what works. These courses are taught by someone who has been the young person in crisis. That changes everything.
+        </p>
+        <p>
+          For young people: You're learning from someone who gets it because they lived it. For educators and professionals: You're learning from someone who has built, tested, and refined these systems in the real world—in crisis units, kitchens, engineering firms, and youth centres. Every case study is real. Every template is tested. Every lesson is earned.
+        </p>
+      </div>
+      <div style="padding: 40px; background: var(--off); border-radius: 4px;">
+        <p style="font-size: 13px; line-height: 1.7; colour: var(--mid); margin: 0;">
+          <strong>Background:</strong> BSc Civil Engineering (Northampton University). Former structural engineer (5+ years, WSP and RGP). Former mental health support worker (2+ years, Cygnet Hospital). Professional chef and kitchen designer (3+ years, Gordon Ramsay Group and Michelin-level restaurants). Lived experience of crisis and recovery. Founder, SAFE. Creator, The Prevention Framework. Now: designing systems that prevent crisis instead of just managing it.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY FORM -->
+<section>
+  <div class="s-inner">
+    <div class="pricing-note">Interested? Tell us about you.</div>
+    <form id="courseEnquiry" method="POST" action="https://api.web3forms.com/submit" style="display: none;">
+      <input type="hidden" name="access_key" value="">
+    </form>
+    <form id="courseForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Surname</label>
+          <input type="text" id="lastName" name="lastName" required>
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="participantType">Participant Type</label>
+          <select id="participantType" name="participantType" required>
+            <option value="">Select an option</option>
+            <option value="Individual 1:1">Individual 1:1</option>
+            <option value="Group">Group</option>
+            <option value="Organisation">Organisation</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="workshopFormat">Workshop Format</label>
+          <select id="workshopFormat" name="workshopFormat" required>
+            <option value="">Select an option</option>
+            <option value="With Workshop">With Workshop</option>
+            <option value="Without Workshop">Without Workshop</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div class="form-group">
+          <label for="serviceMessage">What service are you interested in?</label>
+          <textarea id="serviceMessage" name="serviceMessage" placeholder="Tell us more about your needs and what you're looking for..." required></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="form-submit">Send Enquiry</button>
+    </form>
+    <p style="font-size: 12px; colour: var(--mid); margin-top: 24px; margin-bottom: 0;">
+      Pricing varies based on your participant type and context. We'll get back to you within 48 hours.
+    </p>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section>
+  <div class="s-inner">
+    <div class="rooms-header">
+      <p class="s-label">Explore All Courses</p>
+      <p class="s-num">F</p>
+    </div>
+
+    <!-- FREE COURSES -->
+    <div class="course-section-header">Free Courses</div>
+    <div class="course-grid">
+      <div class="course-card">
+        <div class="course-card-badge">Free</div>
+        <div class="course-card-title">Youth Mental Health & Self-Regulation</div>
+        <div class="course-card-desc">Building on neuroscience and real practice. Teaching professionals how to support emotional development and self-regulation. Open to all.</div>
+        <a class="course-card-link" href="course-mental-health.html">Read More →</a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-badge">Free</div>
+        <div class="course-card-title">Building Youth Voice & Identity</div>
+        <div class="course-card-desc">Using the Identity Studio approach. Help young people develop confidence, agency, and a strong sense of self. Everyone welcome.</div>
+        <a class="course-card-link" href="course-youth-identity.html">Read More →</a>
+      </div>
+    </div>
+
+    <!-- PAID COURSES -->
+    <div class="course-section-header">Premium Courses</div>
+    <div class="course-grid">
+      <div class="course-card">
+        <div class="course-card-title">Structural Integrity Blueprint</div>
+        <div class="course-card-desc">Build the internal and external structures that hold a life together under pressure. Understand your nervous system, identify what's load-bearing in your life, and prevent the patterns that cause collapse.</div>
+        <a class="course-card-link" href="course-designing-safe-spaces.html">Read More →</a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-title">Apprenticeship of Your Own Life</div>
+        <div class="course-card-desc">Take deliberate control of your own becoming. Learn how to set direction intentionally, choose skills that serve your goals, and design the life you actually want instead of the one that happens to you.</div>
+        <a class="course-card-link" href="course-safe-framework.html">Read More →</a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-title">Regret-Free Decision Framework</div>
+        <div class="course-card-desc">Make choices that serve you, not ones you'll regret. Learn a framework for navigating uncertainty, evaluating opportunities without paralysis, and knowing when to pivot versus commit.</div>
+        <a class="course-card-link" href="course-crisis-intervention.html">Read More →</a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-title">Emotional Intelligence Curriculum</div>
+        <div class="course-card-desc">For schools and educators. Help young people understand their emotions, self-regulate, and navigate relationships with awareness. Build the foundation for lifelong emotional wellbeing.</div>
+        <a class="course-card-link" href="course-trauma-informed.html">Read More →</a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-title">Preventing Dropout Before It Starts</div>
+        <div class="course-card-desc">For universities and higher education. Stop dropout by building genuine belonging. Choose your focus: mentoring, regulation, financial resilience, or sense of community.</div>
+        <a class="course-card-link" href="course-community-systems.html">Read More →</a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-title">Breaking the Generational Curse</div>
+        <div class="course-card-desc">For adults 35+. Stop repeating inherited patterns. Understand where your patterns came from, break the cycle, and rebuild your relationship with yourself, others, and your own history.</div>
+        <a class="course-card-link" href="course-business-prevention.html">Read More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="s-inner">
+    <div class="rooms-header">
+      <p class="s-label">Questions</p>
+      <p class="s-num">G</p>
+    </div>
+
+    <div class="faq-section">
+      <div class="faq-item">
+        <div class="faq-question">What's the time commitment?</div>
+        <div class="faq-answer">3–4 hours per week. Video modules are designed for busy professionals — watch at your own pace, take notes, download worksheets. The live workshops are 90 minutes each and scheduled in advance so you can plan around them.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Do I need prior experience in youth work?</div>
+        <div class="faq-answer">No. This course is designed for anyone responsible for young people's development — youth workers, teachers, school leaders, parents, community organisers. If you work with young people and want to prevent crisis before it happens, this is for you.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can my whole team do this together?</div>
+        <div class="faq-answer">Yes. Group rates are available for teams of 5 or more. Many schools and youth centres take the course together so they can build their prevention roadmap as a unified group. <a href="mailto:enquiries@safespot.life" style="colour: var(--black); border-bottom: 1px solid var(--black); text-decoration: none;">Contact us</a> to discuss team options.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What happens after the course ends?</div>
+        <div class="faq-answer">You keep lifetime access to all materials and templates. You're part of an ongoing community of practice — optional monthly calls with other participants. Your prevention roadmap becomes your implementation guide. You'll have the frameworks to build on this for years to come.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Is this accredited?</div>
+        <div class="faq-answer">Not formally accredited, but completion is recognised and valued by practitioners. The focus is on practical application, not credentials. You'll have proof of completion and a roadmap that speaks louder than any certificate.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I get a refund?</div>
+        <div class="faq-answer">Yes. 14-day full refund if the course isn't what you expected. No questions asked. We want you enrolled because you're committed, not because you feel trapped.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-left">S·A·F·E — Steps Approaching Future Earth</span>
+  <span class="footer-right" style="display: flex; gap: 24px; font-size: 11px;">
+    <a href="help.html" style="colour: inherit; text-decoration: none;">Help</a>
+    <a href="privacy.html" style="colour: inherit; text-decoration: none;">Privacy</a>
+    <a href="terms.html" style="colour: inherit; text-decoration: none;">Terms</a>
+    <a href="privacy-choices.html" style="colour: inherit; text-decoration: none;">Choices</a>
+    <a href="accessibility.html" style="colour: inherit; text-decoration: none;">Access</a>
+    <a href="https://hughcorduroy.bandcamp.com/" target="_blank" rel="noopener" style="colour: inherit; text-decoration: none;">Music</a>
+  </span>
+</footer>
+
+<script>
+// FAQ toggle
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', function() {
+    this.parentElement.classList.toggle('active');
+  });
+});
+
+// Course enquiry form
+var courseForm = document.getElementById('courseForm');
+if (courseForm) {
+  courseForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var firstName = document.getElementById('firstName').value;
+    var lastName = document.getElementById('lastName').value;
+    var email = document.getElementById('email').value;
+    var participantType = document.getElementById('participantType').value;
+    var workshopFormat = document.getElementById('workshopFormat').value;
+    var serviceMessage = document.getElementById('serviceMessage').value;
+
+    var mailtoLink = 'mailto:enquiries@safespot.life?' +
+      'subject=Prevention Over Crisis Course Enquiry&body=' +
+      encodeURIComponent(
+        'Name: ' + firstName + ' ' + lastName + '\n' +
+        'Email: ' + email + '\n' +
+        'Participant Type: ' + participantType + '\n' +
+        'Workshop Format: ' + workshopFormat + '\n\n' +
+        'Service Interest:\n' + serviceMessage
+      );
+
+    window.location.href = mailtoLink;
+  });
+}
+</script>
+<script src="theme.js"></script>
+<script src="bento.js" defer></script>
+</body>
+</html>

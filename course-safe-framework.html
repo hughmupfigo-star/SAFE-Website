@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The SAFE Framework Masterclass — SAFE Course</title>
+<meta name="description" content="A comprehensive masterclass in the seven rooms philosophy and how to implement holistic youth development in any setting.">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin: 48px 0; }
+  .course-card { padding: 32px; border: 1px solid var(--light); border-radius: 4px; }
+  .course-card-number { font-size: 48px; font-weight: 300; colour: var(--mid); margin-bottom: 16px; }
+  .course-card-title { font-size: 18px; font-weight: 500; margin-bottom: 12px; colour: var(--black); }
+  .course-card-desc { font-size: 14px; line-height: 1.7; colour: var(--mid); }
+
+  .learning-outcomes { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin: 48px 0; }
+  .outcomes-column h3 { font-size: 16px; font-weight: 500; margin-bottom: 16px; }
+  .outcomes-list { list-style: none; padding: 0; }
+  .outcomes-list li { padding: 12px 0; padding-left: 24px; position: relative; font-size: 14px; line-height: 1.6; colour: var(--mid); }
+  .outcomes-list li:before { content: '→'; position: absolute; left: 0; colour: var(--black); }
+
+  .curriculum-week { padding: 24px; border-left: 3px solid var(--light); margin-bottom: 24px; }
+  .curriculum-week-title { font-weight: 500; margin-bottom: 8px; colour: var(--black); }
+  .curriculum-week-desc { font-size: 13px; line-height: 1.6; colour: var(--mid); }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+  .form-row.full { grid-template-columns: 1fr; }
+  .form-group { display: flex; flex-direction: column; }
+  .form-group label { font-size: 12px; font-weight: 500; margin-bottom: 8px; colour: var(--black); text-transform: uppercase; letter-spacing: 0.05em; }
+  .form-group input, .form-group select, .form-group textarea { padding: 12px; border: 1px solid var(--light); border-radius: 2px; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; colour: var(--black); background: white; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-colour: var(--black); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .form-submit { background: var(--black); colour: white; border: none; padding: 14px 40px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; cursor: pointer; border-radius: 2px; transition: opacity 0.2s; }
+  .form-submit:hover { opacity: 0.8; }
+
+  .back-link { display: inline-block; margin-bottom: 40px; font-size: 12px; colour: var(--black); border-bottom: 1px solid var(--black); text-decoration: none; }
+  .back-link:hover { opacity: 0.6; }
+
+  @media (max-width: 768px) {
+    .learning-outcomes { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="home-logo" aria-label="Home">
+    <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 2 11 L 10 3 L 18 11"/>
+      <path d="M 2 11 L 2 18 L 18 18 L 18 11"/>
+    </svg>
+  </a>
+
+  <button class="nav-toggle" aria-label="Open menu" aria-haspopup="dialog" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" width="20" height="20"><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2.5"/><path d="M 18 8 L 20 6 L 22 8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+    <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+      <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+  </button>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <a href="course.html" class="back-link">← Back to courses</a>
+    <p class="page-hero-eyebrow">The SAFE Framework Masterclass</p>
+    <h1 class="page-hero-title">
+      Holistic Youth<br>
+      <em>Development.</em>
+    </h1>
+    <p class="page-hero-desc">
+      Deep dive into the seven rooms philosophy. Learn the thinking behind each discipline, how they connect, and how to implement them in any setting — from a single room to a whole organisation.
+    </p>
+  </div>
+</section>
+
+<!-- THE COURSE -->
+<section>
+  <div class="s-inner">
+    <div class="rooms-header">
+      <p class="s-label">The Course</p>
+      <p class="s-num">A</p>
+    </div>
+
+    <p style="font-size: 15px; line-height: 1.8; colour: var(--mid); margin-bottom: 32px;">
+      The SAFE Framework is not a set of activities. It is a philosophy of how young people develop when they are truly supported. This masterclass takes you through every layer of the thinking, with real examples of implementation across different contexts.
+    </p>
+
+    <div class="course-grid">
+      <div class="course-card">
+        <div class="course-card-number">01</div>
+        <div class="course-card-title">Format</div>
+        <div class="course-card-desc">8 comprehensive video modules. Live cohort calls. Deep-dive into each of the seven rooms.</div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-number">02</div>
+        <div class="course-card-title">Duration</div>
+        <div class="course-card-desc">8–10 weeks. 4–5 hours per week. Rigorous and thorough.</div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-number">03</div>
+        <div class="course-card-title">Who It's For</div>
+        <div class="course-card-desc">Program designers, organizational leaders, educators, anyone implementing youth development at scale.</div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-number">04</div>
+        <div class="course-card-title">Outcomes</div>
+        <div class="course-card-desc">Deep understanding of integrated youth development. A framework you can apply to your own context. Access to SAFE curriculum materials.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEARNING OUTCOMES -->
+<section>
+  <div class="s-inner">
+    <div class="rooms-header">
+      <p class="s-label">What You'll Learn</p>
+      <p class="s-num">B</p>
+    </div>
+
+    <div class="learning-outcomes">
+      <div>
+        <h3>The Seven Rooms</h3>
+        <ul class="outcomes-list">
+          <li>The Alchemist's Kitchen: Food and nourishment as medicine</li>
+          <li>The Warrior Dojo: Discipline and self-regulation</li>
+          <li>The Kinetic Lab: Flow, risk, and physical literacy</li>
+          <li>The Silence Sanctuary: Stillness and mental health</li>
+          <li>The Resonance Booth: Voice and creative expression</li>
+          <li>The Identity Studio: Confidence and self-knowing</li>
+          <li>The Architect's Library: Knowledge and access</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Integration &amp; Scale</h3>
+        <ul class="outcomes-list">
+          <li>How the rooms connect to create a whole system</li>
+          <li>Adapting the framework to your context</li>
+          <li>Building a curriculum across multiple disciplines</li>
+          <li>Measuring holistic development, not just outcomes</li>
+          <li>Sustaining the framework long-term</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section>
+  <div class="s-inner">
+    <div class="rooms-header">
+      <p class="s-label">Curriculum</p>
+      <p class="s-num">C</p>
+    </div>
+
+    <div class="curriculum-week">
+      <div class="curriculum-week-title">Module 1: The Philosophy Behind SAFE</div>
+      <div class="curriculum-week-desc">Why holistic development works. The research base. How the framework emerged from theory, practice, and real need.</div>
+    </div>
+
+    <div class="curriculum-week">
+      <div class="curriculum-week-title">Module 2–4: The Seven Rooms (Deep Dive)</div>
+      <div class="curriculum-week-desc">Each room explored thoroughly: its purpose, its design, the neuroscience behind it, how to implement it, what success looks like.</div>
+    </div>
+
+    <div class="curriculum-week">
+      <div class="curriculum-week-title">Module 5: Live Cohort Workshop — The System</div>
+      <div class="curriculum-week-desc">How the rooms work together. Building curriculum that integrates them. Case studies of real implementations.</div>
+    </div>
+
+    <div class="curriculum-week">
+      <div class="curriculum-week-title">Module 6–7: Adaptation &amp; Implementation</div>
+      <div class="curriculum-week-desc">How to adapt SAFE to a school, youth centre, community space, or whole system. Budgets, staffing, timelines.</div>
+    </div>
+
+    <div class="curriculum-week">
+      <div class="curriculum-week-title">Module 8: Live Cohort Workshop — Your Implementation Plan</div>
+      <div class="curriculum-week-desc">Present your adapted framework. Get feedback. Commit to action. Join the ongoing SAFE practitioner community.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY FORM -->
+<section>
+  <div class="s-inner">
+    <div class="pricing-note">Interested? Tell us about you.</div>
+    <form id="courseForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Surname</label>
+          <input type="text" id="lastName" name="lastName" required>
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="participantType">Participant Type</label>
+          <select id="participantType" name="participantType" required>
+            <option value="">Select an option</option>
+            <option value="Individual 1:1">Individual 1:1</option>
+            <option value="Group">Group</option>
+            <option value="Organisation">Organisation</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="workshopFormat">Workshop Format</label>
+          <select id="workshopFormat" name="workshopFormat" required>
+            <option value="">Select an option</option>
+            <option value="With Workshop">With Workshop</option>
+            <option value="Without Workshop">Without Workshop</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div class="form-group">
+          <label for="serviceMessage">What service are you interested in?</label>
+          <textarea id="serviceMessage" name="serviceMessage" placeholder="Tell us about your context and what you're looking to build..." required></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="form-submit">Send Enquiry</button>
+    </form>
+    <p style="font-size: 12px; colour: var(--mid); margin-top: 24px; margin-bottom: 0;">
+      Pricing varies based on your participant type and context. We'll get back to you within 48 hours.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-left">S·A·F·E — Steps Approaching Future Earth</span>
+  <span class="footer-right" style="display: flex; gap: 24px; font-size: 11px;">
+    <a href="help.html" style="colour: inherit; text-decoration: none;">Help</a>
+    <a href="privacy.html" style="colour: inherit; text-decoration: none;">Privacy</a>
+    <a href="terms.html" style="colour: inherit; text-decoration: none;">Terms</a>
+    <a href="privacy-choices.html" style="colour: inherit; text-decoration: none;">Choices</a>
+    <a href="accessibility.html" style="colour: inherit; text-decoration: none;">Access</a>
+    <a href="https://hughcorduroy.bandcamp.com/" target="_blank" rel="noopener" style="colour: inherit; text-decoration: none;">Music</a>
+  </span>
+</footer>
+
+<script>
+var courseForm = document.getElementById('courseForm');
+if (courseForm) {
+  courseForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var firstName = document.getElementById('firstName').value;
+    var lastName = document.getElementById('lastName').value;
+    var email = document.getElementById('email').value;
+    var participantType = document.getElementById('participantType').value;
+    var workshopFormat = document.getElementById('workshopFormat').value;
+    var serviceMessage = document.getElementById('serviceMessage').value;
+
+    var mailtoLink = 'mailto:enquiries@safespot.life?' +
+      'subject=SAFE Framework Masterclass Enquiry&body=' +
+      encodeURIComponent(
+        'Name: ' + firstName + ' ' + lastName + '\n' +
+        'Email: ' + email + '\n' +
+        'Participant Type: ' + participantType + '\n' +
+        'Workshop Format: ' + workshopFormat + '\n\n' +
+        'Service Interest:\n' + serviceMessage
+      );
+
+    window.location.href = mailtoLink;
+  });
+}
+</script>
+<script src="theme.js"></script>
+<script src="bento.js" defer></script>
+</body>
+</html>

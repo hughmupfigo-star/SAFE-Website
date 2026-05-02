@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAFE — The Hub · Printable Booklet</title>
+<meta name="description" content="SAFE printable booklet / brochure — print it, share it, hand it out.">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#e8e8e6;font-family:'IBM Plex Sans',sans-serif;colour:#0a0a0a}
+.toolbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;justify-content:space-between;align-items:centre;
+  padding:12px 24px;background:#0a0a0a;colour:#fff;
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+}
+.toolbar a,.toolbar button{
+  colour:#fff;background:none;border:1px solid #fff;
+  font-family:inherit;font-size:inherit;letter-spacing:inherit;text-transform:inherit;
+  padding:8px 14px;cursor:pointer;text-decoration:none;
+}
+.toolbar a:hover,.toolbar button:hover{background:#fff;colour:#0a0a0a}
+.book{max-width:900px;margin:0 auto;padding:24px}
+
+.page{
+  background:#fff;
+  width:100%;
+  aspect-ratio:210/297;
+  margin:0 auto 24px;
+  padding:28mm 20mm;
+  box-shadow:0 2px 20px rgba(0,0,0,0.08);
+  display:flex;flex-direction:column;
+  page-break-after:always;
+  position:relative;
+  overflow:hidden;
+}
+.page.cover{background:#0a0a0a;colour:#fff;padding:28mm 24mm;justify-content:space-between}
+.page.dark{background:#0a0a0a;colour:#fff}
+
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:9pt;letter-spacing:0.2em;
+  text-transform:uppercase;colour:#888;margin-bottom:10pt;
+}
+.cover .eyebrow{colour:rgba(255,255,255,0.45)}
+.big{font-size:34pt;font-weight:300;line-height:1;letter-spacing:-0.02em;margin-bottom:12pt}
+.big em{font-style:italic}
+.cover-title{font-size:42pt;font-weight:300;line-height:0.95;letter-spacing:-0.02em}
+.cover-title em{font-style:italic}
+h2.page-head{font-size:22pt;font-weight:300;letter-spacing:-0.01em;margin-bottom:10pt;line-height:1.1}
+h2.page-head em{font-style:italic}
+
+p.lead{font-size:11pt;line-height:1.6;colour:#333;font-weight:300;margin-bottom:10pt}
+.dark p.lead{colour:rgba(255,255,255,0.85)}
+p.body{font-size:10pt;line-height:1.65;colour:#555;font-weight:300;margin-bottom:8pt}
+.dark p.body{colour:rgba(255,255,255,0.75)}
+ul.clean{list-style:none;margin-top:10pt}
+ul.clean li{
+  font-size:10pt;line-height:1.55;colour:#444;
+  padding:6pt 0;border-top:1px solid rgba(0,0,0,0.1);
+  display:grid;grid-template-columns:22pt 1fr;gap:10pt;
+}
+.dark ul.clean li{border-top-colour:rgba(255,255,255,0.15);colour:rgba(255,255,255,0.8)}
+ul.clean li .num{
+  font-family:'IBM Plex Mono',monospace;font-size:9pt;colour:#888;
+}
+.dark ul.clean li .num{colour:rgba(255,255,255,0.4)}
+ul.clean li strong{font-weight:500;colour:#0a0a0a}
+.dark ul.clean li strong{colour:#fff}
+
+.footer-line{
+  margin-top:auto;
+  font-family:'IBM Plex Mono',monospace;font-size:8pt;letter-spacing:0.15em;
+  text-transform:uppercase;colour:#888;
+  display:flex;justify-content:space-between;border-top:1px solid rgba(0,0,0,0.15);padding-top:8pt;
+}
+.dark .footer-line{colour:rgba(255,255,255,0.45);border-top-colour:rgba(255,255,255,0.2)}
+
+.img-full{
+  width:100%;height:auto;max-height:150mm;
+  object-fit:contain;object-position:centre;
+  display:block;border:1px solid rgba(0,0,0,0.1);margin-bottom:8pt;
+  background:#f5f5f3;
+  aspect-ratio: auto;
+}
+.dark .img-full{border-colour:rgba(255,255,255,0.15);background:#151515}
+.grid2 .img-full{max-height:70mm}
+.cap{font-family:'IBM Plex Mono',monospace;font-size:8pt;letter-spacing:0.1em;text-transform:uppercase;colour:#888;margin-bottom:10pt}
+.dark .cap{colour:rgba(255,255,255,0.45)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12pt;margin-top:6pt}
+.grid2 .cap{margin-top:4pt}
+
+a.inline-link{colour:inherit;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px}
+a.inline-link:hover{opacity:0.75}
+
+.room{border-top:1px solid rgba(0,0,0,0.12);padding-top:10pt;margin-top:10pt}
+.room:first-of-type{border-top:none;margin-top:0;padding-top:0}
+.room-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4pt}
+.room-num{font-family:'IBM Plex Mono',monospace;font-size:9pt;colour:#888;letter-spacing:0.1em}
+.room-name{font-size:13pt;font-weight:400;letter-spacing:-0.01em}
+.room-desc{font-size:9.5pt;colour:#555;font-weight:300;line-height:1.6}
+
+.call{
+  background:#f5f5f3;padding:14pt;margin-top:10pt;
+  font-size:10pt;line-height:1.55;colour:#333;font-weight:300;
+}
+.call strong{colour:#0a0a0a;font-weight:500}
+
+.cover-key{font-family:'IBM Plex Mono',monospace;font-size:9pt;letter-spacing:0.2em;text-transform:uppercase;colour:rgba(255,255,255,0.55);margin-top:10pt}
+
+@page{size:A4;margin:0}
+@media print{
+  html,body{background:#fff}
+  .toolbar{display:none}
+  .book{max-width:none;margin:0;padding:0}
+  .page{
+    box-shadow:none;margin:0;
+    width:210mm;height:297mm;aspect-ratio:auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <span>SAFE · Printable Booklet · A4</span>
+  <span>
+    <a href="hub.html">&larr; Back to Hub</a>
+    <button onclick="window.print()">Print / Save as PDF</button>
+  </span>
+</div>
+
+<div class="book">
+
+  <!-- COVER -->
+  <section class="page cover">
+    <div>
+      <p class="eyebrow">S·A·F·E · Est. 2014 · United Kingdom</p>
+      <p class="cover-key">Steps Approaching Future Earth</p>
+    </div>
+    <h1 class="cover-title">
+      No young<br>
+      person should<br>
+      <em>apologise</em><br>
+      for existing.
+    </h1>
+    <div>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:9pt;letter-spacing:0.15em;text-transform:uppercase;colour:rgba(255,255,255,0.55);margin-bottom:8pt">The SAFE Hub — Brochure</p>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:9pt;letter-spacing:0.15em;text-transform:uppercase;colour:rgba(255,255,255,0.35)">Print · Share · Hand It Over</p>
+    </div>
+  </section>
+
+  <!-- WHAT / WHY -->
+  <section class="page">
+    <p class="eyebrow">What is SAFE · 001</p>
+    <h2 class="page-head">A permanent<br>foundation. <em>Not a programme.</em></h2>
+    <p class="lead">
+      SAFE is a holistic youth development hub. One building. Seven rooms. Designed from lived experience of what was missing. The UK is the first build. The long-term vision is one hub in every country on earth.
+    </p>
+    <p class="body">
+      SAFE is not a charity, not a government programme, and not a crisis response. It is a preventative, people-funded, deliberately modular model. Physical discipline, creative expression, mental strategy and emotional support — all under one roof. Because fragmented systems produce fragmented outcomes.
+    </p>
+    <div class="call">
+      <strong>The core belief:</strong> an earth that is not at war with itself is not idealism — it is the only version of earth that adds up. SAFE does not claim to fix geopolitics. SAFE will build the smallest unit that can — a community of young people given enough to carry faith into the next day.
+    </div>
+    <div class="footer-line"><span>S·A·F·E · Brochure</span><span>01 / 08</span></div>
+  </section>
+
+  <!-- THE FACTS -->
+  <section class="page dark">
+    <p class="eyebrow">Why it exists · the facts</p>
+    <h2 class="page-head">The problem is<br><em>measurable.</em></h2>
+    <ul class="clean">
+      <li><span class="num">01</span><span><strong>Global military spending passed $2.4 trillion in 2023</strong> (SIPRI). More than 110 armed conflicts are currently active. Every bomb is a decision to fund destruction instead of development.</span></li>
+      <li><span class="num">02</span><span><strong>An estimated 468 million children</strong> are growing up in or near conflict zones (UNICEF). A generation is being asked to build a future on ground that is actively being broken.</span></li>
+      <li><span class="num">03</span><span><strong>UK youth services were cut by roughly 70%</strong> between 2010 and 2022 (YMCA). Over 120,000 young people approach their council as homeless each year (Centrepoint).</span></li>
+      <li><span class="num">04</span><span><strong>A single custodial place</strong> for a young person costs the UK taxpayer around £250,000 a year (MoJ). Prevention is cheaper than crisis — by orders of magnitude.</span></li>
+      <li><span class="num">05</span><span><strong>We are one species on one planet.</strong> The biology is identical. The borders are drawn. SAFE treats that fact as a design brief, not a slogan.</span></li>
+    </ul>
+    <div class="footer-line"><span>S·A·F·E · Brochure</span><span>02 / 08</span></div>
+  </section>
+
+  <!-- THE MISSION — DEEPER DIVE -->
+  <section class="page">
+    <p class="eyebrow">The Mission · Why we refuse</p>
+    <h2 class="page-head">This is not a<br>dream. It is a<br><em>refusal.</em></h2>
+    <p class="lead" style="margin-top:12pt">
+      A refusal to pretend that a generation growing up without community, without craft, without safety, without hope — is normal. A refusal to wait for someone else to build what is obviously missing.
+    </p>
+    <div class="call" style="margin-top:14pt">
+      Every hour we wait, a child becomes a statistic that didn't have to be one. SAFE is a plan, costed and drawn, to put that refusal into brick and mortar.
+    </div>
+    <div class="room" style="margin-top:14pt">
+      <div class="room-head"><span class="room-num">①</span><span class="room-name">Youth are paying the bill</span></div>
+      <p class="room-desc">UK youth services were cut 70% since 2010. Over 120,000 young people face homelessness annually. This is not a cultural problem — it is a systematic withdrawal of resource.</p>
+    </div>
+    <div class="room">
+      <div class="room-head"><span class="room-num">②</span><span class="room-name">Prevention is cheaper than crisis</span></div>
+      <p class="room-desc">One custodial place costs £250,000/year. SAFE serves thousands annually for a fraction of that. The maths is not ideological. It is accounting.</p>
+    </div>
+    <div class="room">
+      <div class="room-head"><span class="room-num">③</span><span class="room-name">Built to scale, designed to travel</span></div>
+      <p class="room-desc">The blueprint is documented and replicable. UK first. Then partnerships in other countries. Not a franchise. Not a charity empire. A model specific enough to work and simple enough to travel.</p>
+    </div>
+    <div class="footer-line"><span>S·A·F·E · Brochure</span><span>03 / 08</span></div>
+  </section>
+
+  <!-- MASTERPLAN -->
+  <section class="page">
+    <p class="eyebrow">The Plans · A</p>
+    <h2 class="page-head">Masterplan.<br><em>Buildable.</em></h2>
+    <img class="img-full" src="images/masterplan.png" alt="Holistic Development Hub Masterplan">
+    <p class="cap">Fig. 01 — Holistic Development Hub Masterplan</p>
+    <p class="body">
+      The organising diagram. Every room is positioned so that no discipline is dominant and no young person has to choose between body, mind and voice.
+    </p>
+    <div class="footer-line"><span>S·A·F·E · Brochure</span><span>04 / 08</span></div>
+  </section>
+
+  <!-- SITE + STRUCTURAL -->
+  <section class="page">
+    <p class="eyebrow">The Plans · B</p>
+    <h2 class="page-head">Site &amp; Structure.</h2>
+    <div class="grid2">
+      <div>
+        <img class="img-full" src="images/siteplan.png" alt="Site Plan">
+        <p class="cap">Fig. 02 — Site Plan</p>
+      </div>
+      <div>
+        <img class="img-full" src="images/structural.png" alt="Structural Plan">
+        <p class="cap">Fig. 03 — Structural Plan</p>
+      </div>
+    </div>
+    <p class="body" style="margin-top:10pt">
+      Engineering-led. Costable. Replicable. SAFE is a project conceived in civil engineering — not a mood board. Outdoor and indoor flow is designed as one system: gardening, carpentry and basketball sit in dialogue with the indoor disciplines.
+    </p>
+    <div class="footer-line"><span>S·A·F·E · Brochure</span><span>05 / 08</span></div>
+  </section>
+
+  <!-- ROOMS 1 -->
+  <section class="page">
+    <p class="eyebrow">The Rooms · 01–04</p>
+    <h2 class="page-head">Under one<br>roof.</h2>
+    <div class="room">
+      <div class="room-head"><span class="room-num">01</span><span class="room-name">Alchemist's Kitchen</span></div>
+      <p class="room-desc">Teaching kitchen and nutritional clinic. Food as the first language of safety.</p>
+    </div>
+    <div class="room">
+      <div class="room-head"><span class="room-num">02</span><span class="room-name">Warrior Dojo</span></div>
+      <p class="room-desc">Martial arts, discipline, self-regulation. Converting aggression into precision.</p>
+    </div>
+    <div class="room">
+      <div class="room-head"><span class="room-num">03</span><span class="room-name">Kinetic Lab</span></div>
+      <p class="room-desc">Indoor skatepark and parkour. Controlled risk, flow state, physical literacy.</p>
+    </div>
+    <div class="room">
+      <div class="room-head"><span class="room-num">04</span><span class="room-name">Silence Sanctuary</span></div>
+      <p class="room-desc">Meditation and breathwork. The programme that makes all the others possible.</p>
+    </div>
+    <div class="grid2" style="margin-top:12pt">
+      <div>
+        <img class="img-full" src="images/kitchen.png" alt="Botanical apothecary kitchen and clinic">
+        <p class="cap">01 · Kitchen &amp; Clinic</p>
+      </div>
+      <div>
+        <img class="img-full" src="images/dojo.png" alt="Martial arts dojo">
+        <p class="cap">02 · Warrior Dojo</p>
+      </div>
+    </div>
+    <div class="footer-line"><span>S·A·F·E · Brochure</span><span>06 / 08</span></div>
+  </section>
+
+  <!-- ROOMS 2 -->
+  <section class="page">
+    <p class="eyebrow">The Rooms · 05–07</p>
+    <div class="room">
+      <div class="room-head"><span class="room-num">05</span><span class="room-name">Resonance Booth</span></div>
+      <p class="room-desc">Professional music production &amp; recording studio. Your voice is worth capturing properly.</p>
+    </div>
+    <div class="room">
+      <div class="room-head"><span class="room-num">06</span><span class="room-name">Identity Studio</span></div>
+      <p class="room-desc">Fashion and identity lab. Who are you when nobody is telling you?</p>
+    </div>
+    <div class="room">
+      <div class="room-head"><span class="room-num">07</span><span class="room-name">Architect's Library</span></div>
+      <p class="room-desc">Tech &amp; learning centre. Knowledge is not the problem. Access is.</p>
+    </div>
+    <div class="grid2" style="margin-top:12pt">
+      <div>
+        <img class="img-full" src="images/music.png" alt="Music studio">
+        <p class="cap">05 · Recording Studio</p>
+      </div>
+      <div>
+        <img class="img-full" src="images/fashion-lab.png" alt="Fashion and identity lab">
+        <p class="cap">06 · Identity Studio</p>
+      </div>
+    </div>
+    <div class="grid2" style="margin-top:8pt">
+      <div>
+        <img class="img-full" src="images/meditation.png" alt="Meditation room">
+        <p class="cap">04 · Silence Sanctuary</p>
+      </div>
+      <div>
+        <img class="img-full" src="images/learning.png" alt="Collaborative learning space">
+        <p class="cap">07 · Architect's Library</p>
+      </div>
+    </div>
+    <div class="footer-line"><span>S·A·F·E · Brochure</span><span>07 / 08</span></div>
+  </section>
+
+  <!-- OUTDOOR -->
+  <section class="page">
+    <p class="eyebrow">Outdoor · The Grounds</p>
+    <h2 class="page-head">Outside the<br>walls.</h2>
+    <div class="grid2">
+      <div>
+        <img class="img-full" src="images/kinetic.png" alt="Kinetic movement lab">
+        <p class="cap">Kinetic Lab — skate &amp; parkour</p>
+      </div>
+      <div>
+        <img class="img-full" src="images/basketball.png" alt="Outdoor basketball court">
+        <p class="cap">Outdoor Basketball Court</p>
+      </div>
+    </div>
+    <div class="grid2" style="margin-top:8pt">
+      <div>
+        <img class="img-full" src="images/gardening.png" alt="Outdoor gardening zone">
+        <p class="cap">Gardening Zone</p>
+      </div>
+      <div>
+        <img class="img-full" src="images/carpentry.png" alt="Outdoor carpentry pavilion">
+        <p class="cap">Carpentry Pavilion</p>
+      </div>
+    </div>
+    <p class="body" style="margin-top:10pt">
+      The basketball court is the front door of the building. Open, visible, rules-based, community-owned — any young person in the neighbourhood is welcome, a SAFE member or not. Food grown on site feeds the kitchen. Timber worked outside is used inside.
+    </p>
+    <div class="footer-line"><span>S·A·F·E · Brochure</span><span>08 / 08</span></div>
+  </section>
+
+  <!-- BACK COVER / CTA -->
+  <section class="page dark">
+    <p class="eyebrow">Join · Share · Build</p>
+    <h2 class="page-head">Funded by<br><em>the people.</em></h2>
+    <p class="lead" style="margin-top:10pt">
+      The machine does not own this. Every purchase, every signature, every share builds the mandate. This booklet is offline proof of an online movement. UK first. One hub in every country, in time.
+    </p>
+    <p class="body" style="margin-top:10pt;colour:rgba(255,255,255,0.75)">
+      You're holding this means someone believed enough to print it, hand it over, and share the vision. Now your turn.
+    </p>
+    <ul class="clean" style="margin-top:12pt">
+      <li><span class="num">&rarr;</span><span><strong><a class="inline-link" href="https://www.change.org/p/build-the-uk-s-first-holistic-youth-development-hub-to-transform-at-risk-lives" target="_blank" rel="noopener">Sign the petition</a></strong><br>change.org · Evidence of demand is how we get funded</span></li>
+      <li><span class="num">&rarr;</span><span><strong><a class="inline-link" href="https://safespot.life" target="_blank" rel="noopener">Visit safespot.life</a></strong><br>Full details, shop, stay updated</span></li>
+      <li><span class="num">&rarr;</span><span><strong><a class="inline-link" href="mailto:enquiries@safespot.life">Email enquiries@safespot.life</a></strong><br>Questions? Partnerships? Get in touch</span></li>
+    </ul>
+    <div style="margin-top:auto">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:9pt;letter-spacing:0.18em;text-transform:uppercase;colour:rgba(255,255,255,0.5)">Founded by Hugh Mupfigo · 2014–</p>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:9pt;letter-spacing:0.18em;text-transform:uppercase;colour:rgba(255,255,255,0.3);margin-top:6pt">S·A·F·E — Steps Approaching Future Earth</p>
+    </div>
+    <div class="footer-line"><span>S·A·F·E · Brochure</span><span>09 / 09</span></div>
+  </section>
+
+</div>
+
+</body>
+</html>
