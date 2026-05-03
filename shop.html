@@ -748,6 +748,51 @@
         }</script>
       </article>
 
+      <!-- SAFE SKATER DRESS -->
+      <article class="product-v2" data-code="SAFESKATERDRESS">
+        <div class="product-img">
+          <img src="merch/safe-skater-dress-front.png" alt="SAFE Skater Dress">
+          <div class="slide-nav">
+            <button class="prev" type="button" aria-label="Previous view">&larr;</button>
+            <button class="next" type="button" aria-label="Next view">&rarr;</button>
+          </div>
+          <div class="slide-dots"></div>
+        </div>
+        <div class="product-meta">
+          <h3 class="product-name">SAFE Skater — Dress</h3>
+          <span class="product-price">£42.00</span>
+        </div>
+        <p class="product-desc">A dress for people who move differently. Cloud-printed, A-line cut, built for the body that's in motion, not the body that's still. Wear it to claim space. To say motion is intention. To show that you don't apologise for taking up room. Matches the crop and skirt—mix and match, or wear it complete.</p>
+        <p class="colour-label"><strong>Cloud Print</strong></p>
+        <div class="colour-thumbs">
+          <span class="lbl">1 colourway · 4 views</span>
+        </div>
+        <div class="size-select">
+          <span class="lbl">Size — confirm on checkout</span>
+          <button class="size-btn-v2" type="button">XS</button>
+          <button class="size-btn-v2" type="button">S</button>
+          <button class="size-btn-v2 active" type="button">M</button>
+          <button class="size-btn-v2" type="button">L</button>
+          <button class="size-btn-v2" type="button">XL</button>
+        </div>
+        <button class="preorder-btn add-to-cart-btn" data-code="SAFESKATERDRESS" data-price="42.00" data-name="SAFE Skater — Dress" data-stripe="https://buy.stripe.com/6oUeV6aT37nU1gH7d2e3e0k">
+          Add to Cart
+        </button>
+        <a class="size-guide-link" href="#" onclick="openSizeGuide();return false;" data-i18n="size-guide">Size guide</a>
+        <p class="variant-hint">Size selected here shows you the product — final selection is made on the Stripe checkout page.</p>
+        <script type="application/json">{
+          "code":"SAFESKATERDRESS",
+          "colours":[
+            {"name":"Cloud Print","views":[
+              {"src":"merch/safe-skater-dress-front.png","label":"Front"},
+              {"src":"merch/safe-skater-dress-back.png","label":"Back"},
+              {"src":"merch/safe-skater-dress-side.png","label":"Side"},
+              {"src":"merch/safe-skater-dress-model.png","label":"On Model"}
+            ]}
+          ]
+        }</script>
+      </article>
+
     </div>
   </div>
 </section>
@@ -910,32 +955,32 @@
 </section>
 
 <!-- SHOPPING CART SUMMARY (replaces CTA) -->
-<section id="cartSummarySection" style="display: none;">
+<section id="cartSummarySection" style="display: none; background: #000; color: #fff; padding: 60px 0; margin-top: 80px;">
   <div class="s-inner">
     <div class="rooms-header">
       <p class="s-label">Your Items</p>
     </div>
 
-    <div id="cartItems" style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 32px 0; margin: 40px 0;">
+    <div id="cartItems" style="border-top: 1px solid #333; border-bottom: 1px solid #333; padding: 32px 0; margin: 40px 0;">
       <!-- Cart items will appear here -->
     </div>
 
     <div style="text-align: right; margin-bottom: 40px;">
-      <p style="font-size: 14px; color: var(--mid); margin-bottom: 8px;">Subtotal</p>
-      <p style="font-size: 24px; font-weight: 500; margin-bottom: 4px;">£<span id="cartTotal">0.00</span></p>
-      <p style="font-size: 12px; color: var(--mid);">Shipping calculated at checkout</p>
+      <p style="font-size: 14px; color: #999; margin-bottom: 8px;">Subtotal</p>
+      <p style="font-size: 24px; font-weight: 500; margin-bottom: 4px; color: #fff;">£<span id="cartTotal">0.00</span></p>
+      <p style="font-size: 12px; color: #999;">Shipping calculated at checkout</p>
     </div>
 
     <div style="text-align: right;">
       <button id="proceedCheckout" class="preorder-btn" style="margin-right: 0;">
         Proceed to Checkout
       </button>
-      <p style="font-size: 12px; color: var(--mid); margin-top: 16px;">
-        <a href="#" onclick="clearCart(); return false;" style="text-decoration: underline;">Clear cart</a>
+      <p style="font-size: 12px; color: #999; margin-top: 16px;">
+        <a href="#" onclick="clearCart(); return false;" style="text-decoration: underline; color: #999;">Clear cart</a>
       </p>
     </div>
 
-    <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;colour:var(--mid);margin-top:32px;letter-spacing:0.08em">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#999;margin-top:32px;letter-spacing:0.08em">
       All proceeds fund the build. Free shipping on orders over £100 (set in Stripe shipping options). Returns within 14 days of delivery.
     </p>
   </div>
