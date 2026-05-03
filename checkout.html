@@ -33,7 +33,9 @@
   .order-summary {
     border: 1px solid var(--border);
     padding: 24px;
-    border-radius: 0;
+    border-radius: 8px;
+    background: var(--bg);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   }
 
   .summary-item {
@@ -89,6 +91,23 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+  }
+
+  .form-section {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    background: var(--bg);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+
+  .form-section h3 {
+    margin: 0 0 16px 0;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--mid);
   }
 
   .form-group {
@@ -193,39 +212,48 @@
   <div class="checkout-section">
     <h2>Shipping & Payment</h2>
     <form class="checkout-form" id="checkoutForm">
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" required>
-      </div>
 
-      <div class="form-group">
-        <label for="fullname">Full Name</label>
-        <input type="text" id="fullname" name="fullname" required>
-      </div>
-
-      <div class="form-group">
-        <label for="address">Address</label>
-        <input type="text" id="address" name="address" required>
-      </div>
-
-      <div class="form-row">
+      <div class="form-section">
+        <h3>Contact Information</h3>
         <div class="form-group">
-          <label for="city">City</label>
-          <input type="text" id="city" name="city" required>
-        </div>
-        <div class="form-group">
-          <label for="postcode">Postcode</label>
-          <input type="text" id="postcode" name="postcode" required>
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
         </div>
       </div>
 
-      <div class="form-group">
-        <label for="shipping">Shipping Method</label>
-        <select id="shipping" name="shipping" required>
-          <option value="">Select shipping...</option>
-          <option value="free">Free shipping (orders over £100)</option>
-          <option value="standard">Standard shipping (5-7 business days) - £10</option>
-        </select>
+      <div class="form-section">
+        <h3>Delivery Details</h3>
+        <div class="form-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" name="fullname" required>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" id="address" name="address" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" required>
+          </div>
+          <div class="form-group">
+            <label for="postcode">Postcode</label>
+            <input type="text" id="postcode" name="postcode" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3>Shipping Method</h3>
+        <div class="form-group">
+          <select id="shipping" name="shipping" required>
+            <option value="">Select shipping...</option>
+            <option value="free">Free shipping (orders over £100)</option>
+            <option value="standard">Standard shipping (5-7 business days) - £10</option>
+          </select>
+        </div>
       </div>
 
       <button type="submit" class="pay-btn" id="payBtn">Proceed to Payment</button>
@@ -339,6 +367,9 @@ document.getElementById('checkoutForm').addEventListener('submit', async functio
 
     const shippingMethod = document.getElementById('shipping').value;
 
+    console.log('Calling API:', `${apiDomain}/api/checkout`);
+    console.log('Request data:', { items: cart, customer, shippingMethod });
+
     const response = await fetch(`${apiDomain}/api/checkout`, {
       method: 'POST',
       headers: {
@@ -351,10 +382,14 @@ document.getElementById('checkoutForm').addEventListener('submit', async functio
       })
     });
 
+    console.log('Response status:', response.status);
     const data = await response.json();
+    console.log('Response data:', data);
 
-    if (data.error) {
-      alert('Error: ' + data.error);
+    if (!response.ok || data.error) {
+      const errorMsg = data.error || 'Failed to create checkout session';
+      console.error('API Error:', errorMsg);
+      alert('Error: ' + errorMsg);
       btn.disabled = false;
       btn.textContent = 'Proceed to Payment';
       return;
@@ -362,15 +397,16 @@ document.getElementById('checkoutForm').addEventListener('submit', async functio
 
     // Redirect to Stripe Checkout using the sessionUrl from API
     if (data.sessionUrl) {
+      console.log('Redirecting to:', data.sessionUrl);
       window.location.href = data.sessionUrl;
     } else {
-      alert('Error: No checkout URL returned');
+      alert('Error: No checkout URL returned from API');
       btn.disabled = false;
       btn.textContent = 'Proceed to Payment';
     }
   } catch (error) {
     console.error('Checkout error:', error);
-    alert('Error processing checkout. Please try again.');
+    alert('Error: ' + error.message + '\n\nCheck browser console (F12) for details');
     btn.disabled = false;
     btn.textContent = 'Proceed to Payment';
   }
