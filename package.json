@@ -2,10 +2,6 @@
   "name": "safe-website",
   "version": "1.0.0",
   "description": "SAFE Shop with Stripe checkout",
-  "scripts": {
-    "dev": "vercel dev",
-    "build": "echo 'Static site - no build needed'"
-  },
   "dependencies": {
     "stripe": "^14.0.0",
     "dotenv": "^16.3.1"
