@@ -48,7 +48,7 @@ function validateCartItems(items) {
   return { valid: errors.length === 0, errors };
 }
 
-export default async function handler(req, res) {
+async function handler(req, res) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -185,3 +185,5 @@ export default async function handler(req, res) {
     });
   }
 }
+
+module.exports = handler;
