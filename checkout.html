@@ -322,12 +322,33 @@ document.getElementById('checkoutForm').addEventListener('submit', async functio
   btn.textContent = 'Processing...';
 
   try {
-    const response = await fetch('/api/checkout', {
+    // Use current domain (works on localhost and production)
+    const protocol = window.location.protocol;
+    const host = window.location.host;
+    const apiDomain = `${protocol}//${host}`;
+
+    // Get customer data from form - match the actual form field IDs
+    const customer = {
+      email: document.getElementById('email').value,
+      name: document.getElementById('fullname').value,
+      address: document.getElementById('address').value,
+      city: document.getElementById('city').value,
+      postcode: document.getElementById('postcode').value,
+      country: 'GB'
+    };
+
+    const shippingMethod = document.getElementById('shipping').value;
+
+    const response = await fetch(`${apiDomain}/api/checkout`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ items: cart })
+      body: JSON.stringify({
+        items: cart,
+        customer: customer,
+        shippingMethod: shippingMethod
+      })
     });
 
     const data = await response.json();
@@ -339,8 +360,14 @@ document.getElementById('checkoutForm').addEventListener('submit', async functio
       return;
     }
 
-    // Redirect to Stripe Checkout
-    window.location.href = `https://checkout.stripe.com/pay/${data.sessionId}`;
+    // Redirect to Stripe Checkout using the sessionUrl from API
+    if (data.sessionUrl) {
+      window.location.href = data.sessionUrl;
+    } else {
+      alert('Error: No checkout URL returned');
+      btn.disabled = false;
+      btn.textContent = 'Proceed to Payment';
+    }
   } catch (error) {
     console.error('Checkout error:', error);
     alert('Error processing checkout. Please try again.');
