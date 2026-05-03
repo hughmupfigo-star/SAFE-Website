@@ -1482,7 +1482,9 @@ function initCart() {
   // Handle checkout button
   const checkoutBtn = document.getElementById('proceedCheckout');
   if(checkoutBtn) {
-    checkoutBtn.addEventListener('click', checkout);
+    checkoutBtn.addEventListener('click', function() {
+      window.location.href = 'checkout.html';
+    });
   }
 
   updateCartDisplay();
