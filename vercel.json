@@ -1,4 +1,15 @@
 {
   "version": 2,
-  "buildCommand": "npm install"
+  "buildCommand": "npm install",
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/$1"
+    }
+  ]
 }
