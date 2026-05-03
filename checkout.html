@@ -367,10 +367,10 @@ document.getElementById('checkoutForm').addEventListener('submit', async functio
 
     const shippingMethod = document.getElementById('shipping').value;
 
-    console.log('Calling API:', `${apiDomain}/api/checkout`);
+    console.log('Calling API:', `${apiDomain}/.netlify/functions/checkout`);
     console.log('Request data:', { items: cart, customer, shippingMethod });
 
-    const response = await fetch(`${apiDomain}/api/checkout`, {
+    const response = await fetch(`${apiDomain}/.netlify/functions/checkout`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -415,6 +415,4 @@ document.getElementById('checkoutForm').addEventListener('submit', async functio
 document.addEventListener('DOMContentLoaded', renderCheckout);
 </script>
 
-<script src="theme.js"></script>
-</body>
-</html>
+<script src="theme.
