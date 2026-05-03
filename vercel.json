@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "buildCommand": "npm install",
   "builds": [
     {
       "src": "server.js",
@@ -10,6 +11,10 @@
     {
       "src": "/api/(.*)",
       "dest": "server.js"
+    },
+    {
+      "src": "/(?!api)(.*)",
+      "dest": "/$1"
     }
   ]
 }
